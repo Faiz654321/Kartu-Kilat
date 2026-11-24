@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dashboard · Kartu Kilat</title>
+<meta name="theme-color" content="#35a0fb">
+<link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/icons/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="stage">
+  <div class="screen" data-view="vDash">
+    <div class="wave y" aria-hidden="true"></div>
+    <div class="wave y2" aria-hidden="true"></div>
+    <div class="wave b" aria-hidden="true"></div>
+    <div class="bg-cards" aria-hidden="true">
+      <img class="ghost g1" src="assets/cards/png/punggung.png" alt="" draggable="false">
+      <img class="ghost g2" src="assets/cards/png/punggung.png" alt="" draggable="false">
+      <img class="ghost g3" src="assets/cards/png/punggung.png" alt="" draggable="false">
+      <img class="fc c1" src="assets/cards/png/merah-1.png" alt="" draggable="false">
+      <img class="fc c2" src="assets/cards/png/kuning-balik.png" alt="" draggable="false">
+      <img class="fc c3" src="assets/cards/png/biru-tambah2.png" alt="" draggable="false">
+      <img class="fc c4" src="assets/cards/png/hijau-9.png" alt="" draggable="false">
+    </div>
+
+    <div class="view">
+      <div class="dash-wrap">
+        <header class="dash-head">
+          <div class="ava" id="dashAva" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="8" r="4.5"/><path d="M3.5 21c0-4.6 3.8-7.5 8.5-7.5s8.5 2.9 8.5 7.5z"/></svg></div>
+          <div class="who"><span class="hi">Halo,</span><b id="dashName"></b><span class="em" id="dashEmail"></span></div>
+          <button class="out-btn" id="logoutBtn" type="button"><span>Keluar</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 4H5v16h5M15 7l5 5-5 5M20 12H9"/></svg></button>
+        </header>
+
+        <div class="dash-body">
+          <section class="dash-left" aria-label="Pilih cara bermain">
+            <img class="logo-img" src="assets/logo/kartu-kilat-logo.svg" alt="Kartu Kilat" width="800" height="300">
+            <div class="duo-cards" aria-hidden="true"><img src="assets/cards/png/biru-tambah2.png" alt="" draggable="false"> <img src="assets/cards/png/wild-tambah4.png" alt="" draggable="false"></div>
+            <div class="modes" role="group" aria-label="Pilih cara bermain">
+              <button type="button" class="mode on" data-mode="bot" aria-pressed="true"><svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><rect x="6" y="6" width="20" height="15" rx="2.5" fill="none" stroke="currentColor" stroke-width="3"/><path d="M2 25h28l-2.5 3h-23z"/></svg><span>Lawan komputer</span></button>
+              <button type="button" class="mode" data-mode="duo" aria-pressed="false"><svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><circle cx="11" cy="10" r="5"/><path d="M1.5 27c0-5.6 4.2-9 9.5-9s9.500 3.400 9.500 9z"/><circle cx="23.500" cy="11" r="4"/><path d="M22 18.500c5.200-.600 8.500 2.500 8.500 8.500h-7.500c0-3.400-.500-6-1-8.500z"/></svg><span>Main dengan teman</span></button>
+            </div>
+            <div class="name2" id="name2Wrap" hidden>
+              <label class="lbl" for="name2">Nama pemain 2</label>
+              <label class="field"><input id="name2" maxlength="10" value="Pemain 2" autocomplete="off" aria-label="Nama pemain 2"></label>
+            </div>
+          </section>
+
+          <section class="dash-right" aria-label="Statistik dan mulai main">
+            <div class="stats">
+              <div class="stat"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="6" width="36" height="36" rx="10" fill="#2457c5" stroke="#0e2656" stroke-width="3"/><circle cx="17" cy="17" r="3.200" fill="#fff"/><circle cx="31" cy="17" r="3.200" fill="#fff"/><circle cx="24" cy="24" r="3.200" fill="#fff"/><circle cx="17" cy="31" r="3.200" fill="#fff"/><circle cx="31" cy="31" r="3.200" fill="#fff"/></svg><span>Ronde dimainkan</span><b id="stRounds">0</b></div>
+              <div class="stat"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M13 6h22v13a11 11 0 0 1-22 0z" fill="#f7b500" stroke="#0e2656" stroke-width="3" stroke-linejoin="round"/><path d="M13 10H6c0 8 3 12 8 13M35 10h7c0 8-3 12-8 13" fill="none" stroke="#0e2656" stroke-width="3" stroke-linecap="round"/><path d="M24 30v7M15 42h18l-2-5H17z" fill="#f7b500" stroke="#0e2656" stroke-width="3" stroke-linejoin="round"/></svg><span>Ronde menang</span><b id="stWins">0</b></div>
+              <div class="stat"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 4l6.200 12.800 14 1.900-10.200 9.800 2.500 14L24 35.800 11.500 42.500l2.500-14L3.800 18.700l14-1.900z" fill="#ffd23f" stroke="#0e2656" stroke-width="3" stroke-linejoin="round"/></svg><span>Total poin</span><b id="stPoints">0</b></div>
+              <div class="stat"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M28 3L10 27h12l-4 18 20-26H26z" fill="#ffd23f" stroke="#0e2656" stroke-width="3" stroke-linejoin="round"/></svg><span>Poin tertinggi</span><b id="stBest">0</b></div>
+            </div>
+            <button class="play-btn" id="startBtn" type="button"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M13 7l28 17-28 17z" fill="#fff" stroke="#14264f" stroke-width="4" stroke-linejoin="round"/></svg><span id="startLabel">Mulai main</span></button>
+            <button class="back-btn" id="backBtn" type="button" hidden>Kembali ke permainan</button>
+            <button class="help-btn" id="rulesBtn" type="button" aria-haspopup="dialog"><span class="q" aria-hidden="true">?</span>Cara main</button>
+          </section>
+        </div>
+      </div>
+    </div>
+    <div class="overlay how-ov" id="rulesOv" hidden>
+      <section class="how" role="dialog" aria-modal="true" aria-labelledby="howTitle">
+        <header class="how-head">
+          <h2 id="howTitle">Cara main</h2>
+          <p>Habiskan kartumu lebih dulu dari lawan. Lima hal ini cukup untuk mulai.</p>
+          <button class="x-btn" id="rulesClose" type="button" aria-label="Tutup">&times;</button>
+        </header>
+        <ul class="how-steps">
+          <li class="step s-red">
+            <div class="vis row3"><img src="assets/cards/png/biru-7.png" alt="" draggable="false"><span class="eq" aria-hidden="true">=</span><div class="fan"><img src="assets/cards/png/biru-2.png" alt="" draggable="false"> <img src="assets/cards/png/kuning-7.png" alt="" draggable="false"> <img src="assets/cards/png/wild.png" alt="" draggable="false"></div></div>
+            <div class="txt"><h3>Cocokkan warna atau angka</h3><p>Buang kartu yang warna atau angkanya sama dengan kartu teratas. Kartu Wild boleh dimainkan kapan saja.</p></div>
+          </li>
+          <li class="step s-yellow">
+            <div class="vis"><img src="assets/cards/png/punggung.png" alt="" draggable="false"><span class="eq" aria-hidden="true">&rarr;</span><img src="assets/cards/png/biru-3.png" alt="" draggable="false"></div>
+            <div class="txt"><h3>Tidak ada yang cocok? Ambil kartu</h3><p>Ketuk tumpukan untuk mengambil satu. Kalau cocok, boleh langsung dimainkan atau dilewati.</p></div>
+          </li>
+          <li class="step s-blue">
+            <div class="vis fan4"><img src="assets/cards/png/merah-lewati.png" alt="" draggable="false"> <img src="assets/cards/png/hijau-balik.png" alt="" draggable="false"> <img src="assets/cards/png/kuning-tambah2.png" alt="" draggable="false"> <img src="assets/cards/png/wild-tambah4.png" alt="" draggable="false"></div>
+            <div class="txt"><h3>Kartu aksi membuat lawan dilewati</h3><p>Berdua, kartu Lewati, Balik, +2 dan +4 sama-sama membuat lawan dilewati, jadi kamu jalan lagi.</p></div>
+          </li>
+          <li class="step s-green">
+            <div class="vis"><span class="tbtn green demo">Bilang Kilat!</span></div>
+            <div class="txt"><h3>Kartu tinggal dua? Bilang Kilat!</h3><p>Tekan tombolnya sebelum membuang kartu berikutnya. Kalau lupa, kamu harus ambil 2 kartu.</p></div>
+          </li>
+          <li class="step s-navy wide">
+            <div class="vis pts">
+              <div class="pt"><img src="assets/cards/png/merah-7.png" alt="" draggable="false"><b>7</b><small>sesuai angka</small></div>
+              <div class="pt"><img src="assets/cards/png/kuning-lewati.png" alt="" draggable="false"><b>20</b><small>kartu aksi</small></div>
+              <div class="pt"><img src="assets/cards/png/wild.png" alt="" draggable="false"><b>50</b><small>kartu Wild</small></div>
+            </div>
+            <div class="txt"><h3>Pemenang ronde dapat poin</h3><p>Poin dihitung dari sisa kartu di tangan lawan: kartu angka sesuai nilainya, kartu aksi 20, kartu Wild 50.</p></div>
+          </li>
+        </ul>
+        <button class="submit yel how-ok" id="rulesOk" type="button">Mengerti, ayo main!</button>
+      </section>
+    </div>
+
+    <p class="store-warn" id="storeWarn" hidden>Penyimpanan peramban dinonaktifkan. Akun hanya bertahan selama halaman ini terbuka.</p>
+  </div>
+</div>
+<script src="auth.js"></script>
+<script src="ui.js"></script>
+<script src="dashboard.js"></script>
+</body>
+</html>

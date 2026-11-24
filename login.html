@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Login · Kartu Kilat</title>
+<meta name="theme-color" content="#35a0fb">
+<link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/icons/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="stage">
+  <div class="screen" data-view="vLogin">
+    <div class="wave y" aria-hidden="true"></div>
+    <div class="wave y2" aria-hidden="true"></div>
+    <div class="wave b" aria-hidden="true"></div>
+    <div class="bg-cards" aria-hidden="true">
+      <img class="ghost g1" src="assets/cards/png/punggung.png" alt="" draggable="false">
+      <img class="ghost g2" src="assets/cards/png/punggung.png" alt="" draggable="false">
+      <img class="ghost g3" src="assets/cards/png/punggung.png" alt="" draggable="false">
+      <img class="fc c1" src="assets/cards/png/merah-1.png" alt="" draggable="false">
+      <img class="fc c2" src="assets/cards/png/kuning-balik.png" alt="" draggable="false">
+      <img class="fc c3" src="assets/cards/png/biru-tambah2.png" alt="" draggable="false">
+      <img class="fc c4" src="assets/cards/png/hijau-9.png" alt="" draggable="false">
+    </div>
+
+    <div class="view">
+      <div class="login-col">
+        <img class="logo-img" src="assets/logo/kartu-kilat-logo.svg" alt="Kartu Kilat" width="800" height="300">
+        <div class="title-lines"><h2>Login</h2></div>
+        <form id="loginForm" novalidate>
+          <label class="field"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="8" r="4.5"/><path d="M3.5 21c0-4.6 3.8-7.5 8.5-7.5s8.5 2.9 8.5 7.5z"/></svg><input id="logId" type="text" placeholder="Username / Email" aria-label="Username / Email" autocomplete="username" autocapitalize="none" spellcheck="false"></label>
+          <label class="field"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="4.5" y="10.5" width="15" height="11" rx="2.5"/><path d="M7.5 10.5V8a4.5 4.5 0 0 1 9 0v2.5" fill="none" stroke="currentColor" stroke-width="2.6"/></svg><input id="logPass" type="password" placeholder="Password" aria-label="Password" autocomplete="current-password"><button class="eye" type="button" data-for="logPass" aria-label="Tampilkan password"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/><path class="slash" d="M4 4l16 16"/></svg></button></label>
+          <p class="msg" id="logMsg" role="alert"></p>
+          <button class="submit yel" id="logSubmit" type="submit">Login</button>
+        </form>
+        <p class="alt">Belum punya akun? <a id="logToReg" href="register.html">Register</a></p>
+      </div>
+    </div>
+
+    <p class="store-warn" id="storeWarn" hidden>Penyimpanan peramban dinonaktifkan. Akun hanya bertahan selama halaman ini terbuka.</p>
+  </div>
+</div>
+<script src="auth.js"></script>
+<script src="ui.js"></script>
+<script src="login.js"></script>
+</body>
+</html>

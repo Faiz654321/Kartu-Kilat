@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Permainan · Kartu Kilat</title>
+<meta name="theme-color" content="#a90519">
+<link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/icons/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="stage">
+  <div class="table"></div>
+
+  <div class="zone-top"><div class="fan-top" id="topInner"></div></div>
+
+  <div class="zone-center">
+    <div class="row">
+      <button class="draw-pile" id="drawPile" type="button" aria-label="Ambil kartu dari tumpukan"></button>
+      <div class="stack-wrap" id="stackWrap">
+        <div class="stack" id="discardPile" aria-live="polite"></div>
+      </div>
+      <div class="btns">
+        <button class="tbtn green" id="unoBtn" type="button">Bilang Kilat!</button>
+        <button class="tbtn teal" id="passBtn" type="button">Lewati giliran</button>
+      </div>
+    </div>
+    <div class="colname" id="colName"></div>
+    <div class="hint" id="hint"></div>
+  </div>
+
+  <div class="zone-bottom">
+    <div class="hand-box" id="handBox"><div class="hand-inner" id="handInner"></div></div>
+  </div>
+
+  <div class="chip chip-top" id="chipTop">
+    <div class="avatar"><div class="face"></div><span class="cnt">0</span></div>
+    <div class="meta"><b class="nm"></b><span class="pts"></span></div>
+  </div>
+  <div class="chip chip-bottom" id="chipBottom">
+    <div class="avatar"><div class="face"></div><span class="cnt">0</span></div>
+    <div class="meta"><b class="nm"></b><span class="pts"></span></div>
+  </div>
+
+  <button class="menu-btn" id="menuBtn" type="button">Menu</button>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <div class="overlay" id="colorOv" hidden>
+    <div class="dialog small" role="dialog" aria-modal="true" aria-labelledby="colorTitle">
+      <h2 id="colorTitle">Pilih warna</h2>
+      <div class="swatches">
+        <button class="sw red" type="button" data-color="red">Merah</button>
+        <button class="sw yellow" type="button" data-color="yellow">Kuning</button>
+        <button class="sw green" type="button" data-color="green">Hijau</button>
+        <button class="sw blue" type="button" data-color="blue">Biru</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="overlay cover" id="handoff" hidden>
+    <div class="dialog small" role="dialog" aria-modal="true" aria-labelledby="hoTitle">
+      <div class="ho-cards" aria-hidden="true"><img src="assets/cards/png/punggung.png" alt="" draggable="false"><img src="assets/cards/png/punggung.png" alt="" draggable="false"><img src="assets/cards/png/punggung.png" alt="" draggable="false"></div>
+      <h2 id="hoTitle"></h2>
+      <p id="hoText"></p>
+      <button class="btn primary" id="hoBtn" type="button">Mulai giliran</button>
+    </div>
+  </div>
+
+  <div class="overlay win" id="winOv" hidden>
+    <div class="win-rays" aria-hidden="true"></div>
+    <div class="win-wrap" role="dialog" aria-modal="true" aria-labelledby="winTitle">
+      <div class="win-stage">
+        <div class="win-fan" id="winFan" aria-hidden="true"></div>
+        <div class="ribbon">
+          <svg class="crown" viewBox="0 0 64 46" aria-hidden="true">
+            <path d="M5 40 L9 12 L23 26 L32 6 L41 26 L55 12 L59 40 Z" fill="#ffd45a" stroke="#fff" stroke-width="3" stroke-linejoin="round"/>
+            <circle cx="9" cy="10" r="4.5" fill="#e0384c" stroke="#fff" stroke-width="2"/>
+            <circle cx="32" cy="5" r="4.5" fill="#2f73dc" stroke="#fff" stroke-width="2"/>
+            <circle cx="55" cy="10" r="4.5" fill="#35a862" stroke="#fff" stroke-width="2"/>
+          </svg>
+          <div class="win-label" id="winLabel">PEMENANG</div>
+          <h2 class="win-name" id="winTitle"></h2>
+        </div>
+      </div>
+      <p class="win-sub" id="winSub"></p>
+      <div class="win-scores" id="winScore"></div>
+      <div class="dlg-actions">
+        <button class="btn primary" id="againBtn" type="button">Ronde berikutnya</button>
+        <button class="btn" id="winMenuBtn" type="button">Menu</button>
+      </div>
+    </div>
+  </div>
+
+  <canvas id="confetti" aria-hidden="true"></canvas>
+</div>
+</div>
+
+<script src="engine.js"></script>
+<script src="confetti.js"></script>
+<script src="auth.js"></script>
+<script src="game.js"></script>
+</body>
+</html>
